@@ -1,0 +1,170 @@
+* {
+  margin: 0; /*Espaços*/
+  padding: 0; /*Medidas internas*/
+  box-sizing: border-box; /*Seja medida atraves da BORDA*/
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255,255, 0.5);
+  --surface-color:  rgba(255, 255,255, 0.05);
+  --surface-color-hover:  rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255,255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light{
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color:  rgba(0, 0, 0, 0.05);
+  --surface-color-hover:  rgba(255, 255,255, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*   primeira forma de elaborar o código do body
+  background-image: url(./assets/bg-mobile.jpg); 
+  background-repeat: no-repeat; 
+  background-position: top center; 
+  background-size: cover;  */
+
+  /*Short hand = atalho > resumir o código*/
+  /*background: color image repeat position/size*/
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+  
+  /* border: 1px solid red; */
+}
+
+/* profile */
+#profile {
+  /*Elemento PAI*/
+  text-align: center;
+  padding: 24px; /*Preenchimento interno da caixa*/
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px; /*altura da linha*/
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  position: relative;
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute; /* libera a manipulacao z-index */
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+/* links */
+ul {
+  list-style: none; /* retirar bolinhas das opções*/
+  display: flex; /* ele faz com o que as caixas se alinham flexivelmente */
+  flex-direction: column; /* organizar os conteudos em coluna*/
+  gap: 16px; /*espaçamento entre os li's*/
+  
+  padding: 24px 0;
+}
+
+ul li a{
+  display: flex;
+  align-items: center; /* alinha o texto ao horizontalmente*/
+  justify-content: center; /* alinha o texto verticalmente*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* para rodar em alguns navegadores */
+
+  text-decoration: none; /* retirar o sublinhado do texto*/
+  font-weight: 500; /* definindo o peso da fonte */
+
+  transition: background 0.3s; /* efeito quando passar o mouse por cima da opção*/
+}
+
+/* pseudo-selector*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+
+}
+
+/* social links */
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background .2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color)
+}
+
+footer{
+  padding: 24px 0;
+  text-align: center;
+  font-size: 16px;
+}
